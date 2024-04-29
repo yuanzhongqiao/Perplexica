@@ -1,112 +1,157 @@
-# 🚀 Perplexica - An AI-powered search engine 🔎 <!-- omit in toc -->
-
-![preview](.assets/perplexica-screenshot.png)
-
-## Table of Contents <!-- omit in toc -->
-
-- [Overview](#overview)
-- [Preview](#preview)
-- [Features](#features)
-- [Installation](#installation)
-  - [Getting Started with Docker (Recommended)](#getting-started-with-docker-recommended)
-  - [Non-Docker Installation](#non-docker-installation)
-- [Upcoming Features](#upcoming-features)
-- [Support Us](#support-us)
-- [Contribution](#contribution)
-- [Help and Support](#help-and-support)
-
-## Overview
-
-Perplexica is an open-source AI-powered searching tool or an AI-powered search engine that goes deep into the internet to find answers. Inspired by Perplexity AI, it's an open-source option that not just searches the web but understands your questions. It uses advanced machine learning algorithms like similarity searching and embeddings to refine results and provides clear answers with sources cited.
-
-Using SearxNG to stay current and fully open source, Perplexica ensures you always get the most up-to-date information without compromising your privacy.
-
-## Preview
-
-![video-preview](.assets/perplexica-preview.gif)
-
-## Features
-
-- **Local LLMs**: You can make use local LLMs such as Llama3 and Mixtral using Ollama.
-- **Two Main Modes:**
-  - **Copilot Mode:** (In development) Boosts search by generating different queries to find more relevant internet sources. Like normal search instead of just using the context by SearxNG, it visits the top matches and tries to find relevant sources to the user's query directly from the page.
-  - **Normal Mode:** Processes your query and performs a web search.
-- **Focus Modes:** Special modes to better answer specific types of questions. Perplexica currently has 6 focus modes:
-  - **All Mode:** Searches the entire web to find the best results.
-  - **Writing Assistant Mode:** Helpful for writing tasks that does not require searching the web.
-  - **Academic Search Mode:** Finds articles and papers, ideal for academic research.
-  - **YouTube Search Mode:** Finds YouTube videos based on the search query.
-  - **Wolfram Alpha Search Mode:** Answers queries that need calculations or data analysis using Wolfram Alpha.
-  - **Reddit Search Mode:** Searches Reddit for discussions and opinions related to the query.
-- **Current Information:** Some search tools might give you outdated info because they use data from crawling bots and convert them into embeddings and store them in a index. Unlike them, Perplexica uses SearxNG, a metasearch engine to get the results and rerank and get the most relevent source out of it, ensuring you always get the latest information without the overhead of daily data updates.
-
-It has many more features like image and video search. Some of the planned features are mentioned in [upcoming features](#upcoming-features).
-
-## Installation
-
-There are mainly 2 ways of installing Perplexica - With Docker, Without Docker. Using Docker is highly recommended.
-
-### Getting Started with Docker (Recommended)
-
-1. Ensure Docker is installed and running on your system.
-2. Clone the Perplexica repository:
-
-   ```bash
-   git clone https://github.com/ItzCrazyKns/Perplexica.git
-   ```
-
-3. After cloning, navigate to the directory containing the project files.
-
-4. Rename the `sample.config.toml` file to `config.toml`. For Docker setups, you need only fill in the following fields:
-
-   - `CHAT_MODEL`: The name of the LLM to use. Like `llama3:latest` (using Ollama), `gpt-3.5-turbo` (using OpenAI), etc.
-   - `CHAT_MODEL_PROVIDER`: The chat model provider, either `openai` or `ollama`. Depending upon which provider you use you would have to fill in the following fields:
-
-     - `OPENAI`: Your OpenAI API key. **You only need to fill this if you wish to use OpenAI's models**.
-     - `OLLAMA`: Your Ollama API URL. You should enter it as `http://host.docker.internal:PORT_NUMBER`. If you installed Ollama on port 11434, use `http://host.docker.internal:11434`. For other ports, adjust accordingly. **You need to fill this if you wish to use Ollama's models instead of OpenAI's**.
-
-       **Note**: You can change these and use different models after running Perplexica as well from the settings page.
-
-   - `SIMILARITY_MEASURE`: The similarity measure to use (This is filled by default; you can leave it as is if you are unsure about it.)
-
-5. Ensure you are in the directory containing the `docker-compose.yaml` file and execute:
-
-   ```bash
-   docker compose up -d
-   ```
-
-6. Wait a few minutes for the setup to complete. You can access Perplexica at http://localhost:3000 in your web browser.
-
-**Note**: After the containers are built, you can start Perplexica directly from Docker without having to open a terminal.
-
-### Non-Docker Installation
-
-For setups without Docker:
-
-1. Follow the initial steps to clone the repository and rename the `sample.config.toml` file to `config.toml` in the root directory. You will need to fill in all the fields in this file.
-2. Additionally, rename the `.env.example` file to `.env` in the `ui` folder and complete all fields.
-3. The non-Docker setup requires manual configuration of both the backend and frontend.
-
-**Note**: Using Docker is recommended as it simplifies the setup process, especially for managing environment variables and dependencies.
-
-## Upcoming Features
-
-- [ ] Finalizing Copilot Mode
-- [x] Add settings page
-- [x] Adding support for local LLMs
-- [ ] Adding Discover and History Saving features
-- [x] Introducing various Focus Modes
-
-## Support Us
-
-If you find Perplexica useful, consider giving us a star on GitHub. This helps more people discover Perplexica and supports the development of new features. Your support is appreciated.
-
-## Contribution
-
-Perplexica is built on the idea that AI and large language models should be easy for everyone to use. If you find bugs or have ideas, please share them in via GitHub Issues. For more information on contributing to Perplexica you can read the [CONTRIBUTING.md](CONTRIBUTING.md) file to learn more about Perplexica and how you can contribute to it.
-
-## Help and Support
-
-If you have any questions or feedback, please feel free to reach out to us. You can create an issue on GitHub or join our Discord server. There, you can connect with other users, share your experiences and reviews, and receive more personalized help. [Click here](https://discord.gg/EFwsmQDgAu) to join the Discord server. To discuss matters outside of regular support, feel free to contact me on Discord at `itzcrazykns`.
-
-Thank you for exploring Perplexica, the AI-powered search engine designed to enhance your search experience. We are constantly working to improve Perplexica and expand its capabilities. We value your feedback and contributions which help us make Perplexica even better. Don't forget to check back for updates and new features!
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">🚀 Perplexica - 人工智能驱动的搜索引擎🔎</font></font></h1><a id="user-content--perplexica---an-ai-powered-search-engine--" class="anchor" aria-label="永久链接：🚀 P&ZeroWidthSpace;&ZeroWidthSpace;erplexica - 人工智能驱动的搜索引擎🔎" href="#-perplexica---an-ai-powered-search-engine--"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/ItzCrazyKns/Perplexica/blob/master/.assets/perplexica-screenshot.png"><img src="/ItzCrazyKns/Perplexica/raw/master/.assets/perplexica-screenshot.png" alt="预览" style="max-width: 100%;"></a></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目录</font></font></h2><a id="user-content-table-of-contents-" class="anchor" aria-label="固定链接：目录" href="#table-of-contents-"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="#overview"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></a></li>
+<li><a href="#preview"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预览</font></font></a></li>
+<li><a href="#features"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></a></li>
+<li><a href="#installation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></a>
+<ul dir="auto">
+<li><a href="#getting-started-with-docker-recommended"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Docker 入门（推荐）</font></font></a></li>
+<li><a href="#non-docker-installation"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非 Docker 安装</font></font></a></li>
+</ul>
+</li>
+<li><a href="#upcoming-features"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">即将推出的功能</font></font></a></li>
+<li><a href="#support-us"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持我们</font></font></a></li>
+<li><a href="#contribution"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></a></li>
+<li><a href="#help-and-support"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帮助和支持</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></h2><a id="user-content-overview" class="anchor" aria-label="永久链接：概述" href="#overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perplexica 是一款开源的人工智能搜索工具或人工智能搜索引擎，可以深入互联网寻找答案。受到 Perplexity AI 的启发，它是一个开源选项，不仅可以搜索网络，还可以理解您的问题。它使用相似性搜索和嵌入等先进的机器学习算法来完善结果，并提供明确的答案和引用的来源。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perplexica 使用 SearxNG 保持最新且完全开源，确保您始终获得最新信息，而不会损害您的隐私。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">预览</font></font></h2><a id="user-content-preview" class="anchor" aria-label="永久链接：预览" href="#preview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><animated-image data-catalyst=""><a target="_blank" rel="noopener noreferrer" href="/ItzCrazyKns/Perplexica/blob/master/.assets/perplexica-preview.gif" data-target="animated-image.originalLink" hidden=""><img src="/ItzCrazyKns/Perplexica/raw/master/.assets/perplexica-preview.gif" alt="video-preview" style="max-width: 100%;" data-target="animated-image.originalImage" hidden=""></a>
+      <span class="AnimatedImagePlayer" data-target="animated-image.player">
+        <a data-target="animated-image.replacedLink" class="AnimatedImagePlayer-images" href="https://github.com/ItzCrazyKns/Perplexica/blob/master/.assets/perplexica-preview.gif" target="_blank">
+          <span data-target="animated-image.imageContainer">
+            <img data-target="animated-image.replacedImage" alt="video-preview" class="AnimatedImagePlayer-animatedImage" src="https://github.com/ItzCrazyKns/Perplexica/raw/master/.assets/perplexica-preview.gif">
+          </span>
+        </a>
+        <button data-target="animated-image.imageButton" class="AnimatedImagePlayer-images" tabindex="-1"></button>
+        <span class="AnimatedImagePlayer-controls" data-target="animated-image.controls">
+          <button data-target="animated-image.playButton" class="AnimatedImagePlayer-button">
+            <svg aria-hidden="true" focusable="false" class="octicon icon-play" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5427V2.45734C4 1.82607 4.69692 1.4435 5.2295 1.78241L13.9394 7.32507C14.4334 7.63943 14.4334 8.36057 13.9394 8.67493L5.2295 14.2176C4.69692 14.5565 4 14.1739 4 13.5427Z">
+            </path></svg>
+            <svg aria-hidden="true" focusable="false" class="octicon icon-pause" width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="2" width="3" height="12" rx="1"></rect>
+              <rect x="9" y="2" width="3" height="12" rx="1"></rect>
+            </svg>
+          </button>
+          <a data-target="animated-image.openButton" aria-label="Open in new window" class="AnimatedImagePlayer-button" href="https://github.com/ItzCrazyKns/Perplexica/blob/master/.assets/perplexica-preview.gif" target="_blank">
+            <svg aria-hidden="true" class="octicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+              <path fill-rule="evenodd" d="M10.604 1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1zM3.75 2A1.75 1.75 0 002 3.75v8.5c0 .966.784 1.75 1.75 1.75h8.5A1.75 1.75 0 0014 12.25v-3.5a.75.75 0 00-1.5 0v3.5a.25.25 0 01-.25.25h-8.5a.25.25 0 01-.25-.25v-8.5a.25.25 0 01.25-.25h3.5a.75.75 0 000-1.5h-3.5z"></path>
+            </svg>
+          </a>
+        </span>
+      </span></animated-image></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特征</font></font></h2><a id="user-content-features" class="anchor" aria-label="永久链接：特点" href="#features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">本地法学硕士</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：您可以使用本地法学硕士，例如使用 Ollama 的 Llama3 和 Mixtral。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">两种主要模式：</font></font></strong>
+<ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">副驾驶模式：（</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正在开发中）通过生成不同的查询来查找更相关的互联网资源来增强搜索。与普通搜索一样，SearxNG 不只是使用上下文，它会访问最热门的匹配项，并尝试直接从页面查找与用户查询相关的来源。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正常模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">处理您的查询并执行网络搜索。</font></font></li>
+</ul>
+</li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">焦点模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">特殊模式可以更好地回答特定类型的问题。 Perplexica 目前有 6 种对焦模式：
+</font></font><ul dir="auto">
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">全部模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">搜索整个网络以找到最佳结果。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">写作助手模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有助于编写不需要搜索网络的任务。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">学术搜索模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查找文章和论文，非常适合学术研究。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">YouTube 搜索模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据搜索查询查找 YouTube 视频。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Wolfram Alpha 搜索模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">回答需要使用 Wolfram Alpha 进行计算或数据分析的查询。</font></font></li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reddit 搜索模式：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在 Reddit 中搜索与查询相关的讨论和意见。</font></font></li>
+</ul>
+</li>
+<li><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前信息：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">某些搜索工具可能会为您提供过时的信息，因为它们使用来自爬行机器人的数据并将其转换为嵌入并将其存储在索引中。与它们不同的是，Perplexica 使用元搜索引擎 SearxNG 来获取结果并重新排名并从中获取最相关的来源，确保您始终获得最新信息，而无需承担日常数据更新的开销。</font></font></li>
+</ul>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它还有更多功能，例如图像和视频搜索。</font></font><a href="#upcoming-features"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">即将推出的功能</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中提到了一些计划中的功能</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装</font></font></h2><a id="user-content-installation" class="anchor" aria-label="永久链接：安装" href="#installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装 Perplexica 主要有两种方式 - 使用 Docker、不使用 Docker。强烈建议使用 Docker。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Docker 入门（推荐）</font></font></h3><a id="user-content-getting-started-with-docker-recommended" class="anchor" aria-label="永久链接：Docker 入门（推荐）" href="#getting-started-with-docker-recommended"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ol dir="auto">
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保 Docker 已安装并在您的系统上运行。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克隆 Perplexica 存储库：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>git clone https://github.com/ItzCrazyKns/Perplexica.git</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git clone https://github.com/ItzCrazyKns/Perplexica.git" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克隆后，导航到包含项目文件的目录。</font></font></p>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将文件重命名</font></font><code>sample.config.toml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为</font></font><code>config.toml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.对于 Docker 设置，您只需填写以下字段：</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>CHAT_MODEL</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：要使用的 LLM 名称。比如</font></font><code>llama3:latest</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（使用 Ollama）、</font></font><code>gpt-3.5-turbo</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（使用 OpenAI）等。</font></font></p>
+</li>
+<li>
+<p dir="auto"><code>CHAT_MODEL_PROVIDER</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：聊天模型提供商，或者</font></font><code>openai</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code>ollama</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。根据您使用的提供商，您必须填写以下字段：</font></font></p>
+<ul dir="auto">
+<li>
+<p dir="auto"><code>OPENAI</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：您的 OpenAI API 密钥。</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想使用 OpenAI 的模型，则只需填写此项</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+</li>
+<li>
+<p dir="auto"><code>OLLAMA</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：您的 Ollama API URL。您应该将其输入为</font></font><code>http://host.docker.internal:PORT_NUMBER</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.如果您在端口 11434 上安装了 Ollama，请使用</font></font><code>http://host.docker.internal:11434</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.对于其他端口，请进行相应调整。</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您想使用 Ollama 的模型而不是 OpenAI 的模型，则需要填写此项</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></p>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：您也可以在运行 Perplexica 后从设置页面更改这些并使用不同的模型。</font></font></p>
+</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><code>SIMILARITY_MEASURE</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：要使用的相似性度量（默认填写；如果您不确定，可以保留原样。）</font></font></p>
+</li>
+</ul>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">确保您位于包含该文件的目录中</font></font><code>docker-compose.yaml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并执行：</font></font></p>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>docker compose up -d</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="docker compose up -d" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+</li>
+<li>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等待几分钟以完成设置。您可以</font><font style="vertical-align: inherit;">在 Web 浏览器中通过</font></font><a href="http://localhost:3000" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">http://localhost:3000访问 Perplexica。</font></font></a><font style="vertical-align: inherit;"></font></p>
+</li>
+</ol>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：容器构建完成后，您可以直接从 Docker 启动 Perplexica，而无需打开终端。</font></font></p>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非 Docker 安装</font></font></h3><a id="user-content-non-docker-installation" class="anchor" aria-label="永久链接：非 Docker 安装" href="#non-docker-installation"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于没有 Docker 的设置：</font></font></p>
+<ol dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按照初始步骤克隆存储库并将</font></font><code>sample.config.toml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件重命名为</font></font><code>config.toml</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根目录中的文件。您需要填写此文件中的所有字段。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此外，将文件夹</font><font style="vertical-align: inherit;">中的</font></font><code>.env.example</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件重命名为</font><font style="vertical-align: inherit;">并填写所有字段。</font></font><code>.env</code><font style="vertical-align: inherit;"></font><code>ui</code><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非 Docker 设置需要手动配置后端和前端。</font></font></li>
+</ol>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：建议使用 Docker，因为它可以简化设置过程，尤其是管理环境变量和依赖项。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">即将推出的功能</font></font></h2><a id="user-content-upcoming-features" class="anchor" aria-label="永久链接：即将推出的功能" href="#upcoming-features"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">完成副驾驶模式</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加设置页面</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加对本地法学硕士的支持</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">添加发现和历史记录保存功能</font></font></li>
+<li class="task-list-item"><input type="checkbox" id="" disabled="" class="task-list-item-checkbox" checked=""><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">介绍各种对焦模式</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">支持我们</font></font></h2><a id="user-content-support-us" class="anchor" aria-label="永久链接：支持我们" href="#support-us"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您发现 Perplexica 有用，请考虑在 GitHub 上给我们一颗星。这有助于更多人发现 Perplexica 并支持新功能的开发。感谢您的支持。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">贡献</font></font></h2><a id="user-content-contribution" class="anchor" aria-label="永久链接：贡献" href="#contribution"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Perplexica 的理念是人工智能和大型语言模型应该易于每个人使用。如果您发现错误或有想法，请通过 GitHub Issues 分享。有关为 Perplexica 做出贡献的更多信息，您可以阅读</font></font><a href="/ItzCrazyKns/Perplexica/blob/master/CONTRIBUTING.md"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">CONTRIBUTING.md</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件以了解有关 Perplexica 的更多信息以及如何为其做出贡献。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帮助和支持</font></font></h2><a id="user-content-help-and-support" class="anchor" aria-label="永久链接：帮助和支持" href="#help-and-support"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您有任何问题或反馈，请随时与我们联系。您可以在 GitHub 上创建问题或加入我们的 Discord 服务器。在那里，您可以与其他用户联系，分享您的经验和评论，并获得更多个性化的帮助。</font></font><a href="https://discord.gg/EFwsmQDgAu" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单击此处</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入 Discord 服务器。要讨论常规支持之外的问题，请随时在 Discord 上与我联系</font></font><code>itzcrazykns</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">： 。</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">感谢您探索 Perplexica，这是一款人工智能驱动的搜索引擎，旨在增强您的搜索体验。我们不断努力改进 Perplexica 并扩展其功能。我们重视您的反馈和贡献，这有助于我们使 Perplexica 变得更好。不要忘记回来查看更新和新功能！</font></font></p>
+</article></div>
